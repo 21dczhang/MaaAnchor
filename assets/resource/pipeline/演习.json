@@ -107,6 +107,13 @@
             "积分"
         ],
         "action": "Click",
+        "target": [
+            68,
+            699,
+            36,
+            19
+        ],
+        "post_delay": 1000,
         "pre_wait_freezes": 5000,
     },
     "演习_演习_Start_综合对抗赛": {

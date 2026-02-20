@@ -20,12 +20,6 @@
             ]
         }
     ],
-    "agent": {
-        "child_exec": "python",
-        "child_args": [
-            "./../agent/main.py"
-        ]
-    },
     "task": [
         {
             "name": "启动游戏",
@@ -60,6 +54,10 @@
             "option": [
                 "情报角色选择"
             ]
+        },
+        {
+            "name": "测试任务2",
+            "entry": "演习_演习_Start_战斗结束"
         }
     ],
     "option": {

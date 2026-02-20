@@ -1,0 +1,220 @@
+{
+    "特供免费礼包_Start": {
+        "next": [
+            "特供免费礼包_Start_Is_HomePage1",
+            "[JumpBack]特供免费礼包_CallBack_Button",
+            "[JumpBack]特供免费礼包_CallBack_Button1",
+            "[JumpBack]特供免费礼包_CallBack_Button2"
+        ],
+        "focus": "开始特供免费礼包任务"
+    },
+    "特供免费礼包_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "特供免费礼包_Start_Is_HomePage2",
+            "[JumpBack]特供免费礼包_CallBack_Button",
+            "[JumpBack]特供免费礼包_CallBack_Button1",
+            "[JumpBack]特供免费礼包_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "特供免费礼包_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "特供免费礼包_特供免费礼包_Go_商店主界面"
+            //这里添加主任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "特供免费礼包_特供免费礼包_Go_商店主界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "特供.png"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "特供免费礼包_特供免费礼包_Start"
+        ]
+    },
+    "特供免费礼包_特供免费礼包_Start": {
+        "post_delay": 3000,
+        "next": [
+            "[JumpBack]特供免费礼包_特供免费礼包_选择免费礼包",
+            "[JumpBack]特供免费礼包_特供免费礼包_点击红点",
+            "特供免费礼包_ComeBack_Home"
+        ],
+    },
+    "特供免费礼包_特供免费礼包_选择免费礼包": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "特供免费礼包.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]特供免费礼包_CallBack_Button1"
+        ],
+        "timeout": 3000,
+        "focus": "点击特供补给包"
+    },
+    "特供免费礼包_特供免费礼包_点击红点": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "红点.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "roi": [
+            36,
+            112,
+            210,
+            504
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "focus": "点击红点"
+    },
+    "特供免费礼包_特供免费礼包_Start_领取免费礼包": {
+        "recognition": "OCR",
+        "expected": [
+            "日常补给包",
+            "周常补给包",
+            "月度补给包",
+        ],
+        "action": "Click",
+        "max_hit": 3,
+        "next": [
+            "[JumpBack]特供免费礼包_CallBack_Button1"
+        ],
+        "timeout": 4000,
+        "focus": "领取免费礼包"
+    },
+    "特供免费礼包_特供免费礼包_Start_YiJianRuZhu": {
+        "recognition": "OCR",
+        "expected": [
+            "一键入驻"
+        ],
+        "action": "Click",
+        "max_hit": 2,
+        "timeout": 4000,
+        "focus": "点击一键入驻"
+    },
+    "特供免费礼包_特供免费礼包_Start_PaiQianWu": {
+        "recognition": "OCR",
+        "expected": [
+            "派遣坞"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ],
+        "max_hit": 1,
+        "post_delay": 3000,
+        "next": [
+            "特供免费礼包_特供免费礼包_Start_PaiQianWu_Click_待派遣",
+        ],
+        "focus": "点击派遣坞",
+    },
+    "特供免费礼包_特供免费礼包_Start_PaiQianWu_Click_待派遣": {
+        "recognition": "OCR",
+        "expected": [
+            "待派遣"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]特供免费礼包_特供免费礼包_Start_PaiQianWu_一键领取",
+            "[JumpBack]特供免费礼包_特供免费礼包_Start_PaiQianWu_一键派遣"
+        ],
+        "timeout": 6000
+    },
+    "特供免费礼包_特供免费礼包_Start_PaiQianWu_一键领取": {
+        "recognition": "OCR",
+        "expected": [
+            "一键领取"
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+        "next": [
+            "特供免费礼包_CallBack_Button1"
+        ]
+    },
+    "特供免费礼包_特供免费礼包_Start_PaiQianWu_一键派遣": {
+        "recognition": "OCR",
+        "expected": [
+            "派遣"
+        ],
+        "roi": [
+            924,
+            598,
+            352,
+            122
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+    },
+    "特供免费礼包_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "特供免费礼包_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "特供免费礼包_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "特供免费礼包_ComeBack_Home": {
+        "next": [
+            "特供免费礼包_Is_HomePage1",
+            "[JumpBack]特供免费礼包_CallBack_Button",
+            "[JumpBack]特供免费礼包_CallBack_Button1",
+            "[JumpBack]特供免费礼包_CallBack_Button2"
+        ]
+    },
+    "特供免费礼包_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "特供免费礼包_Is_HomePage2",
+            "[JumpBack]特供免费礼包_CallBack_Button",
+            "[JumpBack]特供免费礼包_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "特供免费礼包_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

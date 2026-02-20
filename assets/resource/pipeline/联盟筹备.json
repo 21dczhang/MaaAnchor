@@ -1,0 +1,152 @@
+{
+    "联盟_Start": {
+        "next": [
+            "联盟_Start_Is_HomePage1",
+            "[JumpBack]联盟_CallBack_Button",
+            "[JumpBack]联盟_CallBack_Button1",
+            "[JumpBack]联盟_CallBack_Button2"
+        ],
+        "focus": "开始联盟任务"
+    },
+    "联盟_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 2000,
+        "next": [
+            "联盟_Start_Is_HomePage2",
+            "[JumpBack]联盟_CallBack_Button",
+            "[JumpBack]联盟_CallBack_Button1",
+            "[JumpBack]联盟_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待2s再次检查",
+    },
+    "联盟_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "联盟_联盟_Go_联盟主界面"
+            //这里添加主任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "联盟_联盟_Go_联盟主界面": {
+        "recognition": "OCR",
+        "expected": [
+            "联盟"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "联盟_联盟_Start"
+        ]
+    },
+    "联盟_联盟_Start": {
+        "post_delay": 2000,
+        "next": [
+            "[JumpBack]联盟_联盟_Goto_筹备",
+            "联盟_ComeBack_Home"
+        ],
+    },
+    "联盟_联盟_Goto_筹备": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "联盟-筹备.png"
+        ],
+        "roi": [
+            619,
+            630,
+            621,
+            53
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "next": [
+            "[JumpBack]联盟_联盟_Goto_昨日未领取奖励",
+            "联盟_联盟_普通筹备"
+        ],
+        "post_delay": 500,
+        "focus": "点击筹备"
+    },
+    "联盟_联盟_Goto_昨日未领取奖励": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]联盟_CallBack_Button1"
+        ],
+        "timeout": 3000,
+        "focus": "领取昨天未领取奖励"
+    },
+    "联盟_联盟_普通筹备": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "联盟 - 普通筹备.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]联盟_CallBack_Button1"
+        ],
+        "timeout": 3000,
+        "focus": "点击普通筹备"
+    },
+    "联盟_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "联盟_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "联盟_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "联盟_ComeBack_Home": {
+        "next": [
+            "联盟_Is_HomePage1",
+            "[JumpBack]联盟_CallBack_Button",
+            "[JumpBack]联盟_CallBack_Button1",
+            "[JumpBack]联盟_CallBack_Button2"
+        ]
+    },
+    "联盟_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 2000,
+        "next": [
+            "联盟_Is_HomePage2",
+            "[JumpBack]联盟_CallBack_Button",
+            "[JumpBack]联盟_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待2s再次检查",
+    },
+    "联盟_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

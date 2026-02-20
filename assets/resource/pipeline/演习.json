@@ -1,0 +1,308 @@
+{
+    "演习_Start": {
+        "next": [
+            "演习_Start_Is_HomePage1",
+            "[JumpBack]演习_CallBack_Button",
+            "[JumpBack]演习_CallBack_Button1",
+            "[JumpBack]演习_CallBack_Button2"
+        ],
+        "focus": "开始演习任务"
+    },
+    "演习_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "演习_Start_Is_HomePage2",
+            "[JumpBack]演习_CallBack_Button",
+            "[JumpBack]演习_CallBack_Button1",
+            "[JumpBack]演习_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "演习_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "演习_演习_Start"
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "演习_演习_Start": {
+        "recognition": "OCR",
+        "expected": [
+            "演"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]演习_演习_Start_加载中",
+            "[JumpBack]演习_演习_Start_常规演习",
+            "[JumpBack]演习_演习_Start_综合对抗赛",
+            "演习_ComeBack_Home"
+        ],
+    },
+    "演习_演习_Start_常规演习": {
+        "recognition": "OCR",
+        "expected": [
+            "常规演习"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "next": [
+            "[JumpBack]演习_演习_Start_加载中",
+            "[JumpBack]演习_演习_Start_常规演习_查询免费次数",
+            "演习_演习_Start_常规演习_返回演习主界面"
+        ],
+        "timeout": 4000,
+        "post_delay": 2000,
+        "focus": "点击常规演习"
+    },
+    "演习_演习_Start_常规演习_查询免费次数": {
+        "recognition": "OCR",
+        "expected": [
+            "免费"
+        ],
+        "roi": [
+            886,
+            511,
+            272,
+            161
+        ],
+        "action": "DoNothing",
+        "next": [
+            "演习_演习_Start_常规演习_查询免费次数_剩余免费次数",
+        ],
+        "max_hit": 3,
+        "post_delay": 2000,
+        "timeout": 5000,
+        "focus": "检查免费次数..."
+    },
+    "演习_演习_Start_常规演习_查询免费次数_剩余免费次数": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "免费寻找对手.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]演习_演习_Start_加载中",
+            "[JumpBack]演习_演习_Start_战斗中",
+            "演习_演习_Start_战斗结束"
+        ],
+        "post_delay": 5000
+    },
+    "演习_演习_Start_战斗结束": {
+        "recognition": "OCR",
+        "expected": [
+            "积分"
+        ],
+        "action": "Click",
+        "pre_wait_freezes": 5000,
+    },
+    "演习_演习_Start_综合对抗赛": {
+        "recognition": "OCR",
+        "expected": [
+            "综合对抗"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "target_offset": [
+            0,
+            100,
+            0,
+            0
+        ],
+        "next": [
+            "[JumpBack]演习_演习_Start_加载中",
+            "演习_演习_Start_综合对抗_识别次数_Start",
+        ],
+        "timeout": 4000,
+        "post_delay": 1000,
+        "focus": "点击综合对抗"
+    },
+    "演习_演习_Start_综合对抗_识别次数_Start": {
+        "next": [
+            "[JumpBack]演习_演习_Start_综合对抗_识别有效次数",
+            "演习_演习_Start_综合对抗_识别没有次数"
+        ],
+        "focus": "检查次数..."
+    },
+    "演习_演习_Start_综合对抗_识别有效次数": {
+        "recognition": "OCR",
+        "expected": [
+            "(?<!\\d)[1-5]/5(?!\\d)"
+        ],
+        "action": "DoNothing",
+        "next": [
+            "演习_演习_Start_综合对抗_选择队伍"
+        ],
+        "focus": "检查到剩余次数，继续挑战"
+    },
+    "演习_演习_Start_综合对抗_选择队伍": {
+        "recognition": "OCR",
+        "expected": [
+            "第"
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "action": "Click",
+        "next": [
+            "[JumpBack]演习_演习_Start_综合对抗_选择队伍_不进入战斗选项",
+            "演习_演习_Start_综合对抗_选择队伍_开始战斗"
+        ],
+        "focus": "选择最后一名队伍"
+    },
+    "演习_演习_Start_综合对抗_选择队伍_不进入战斗选项": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "综合对抗赛 - 不进入战斗.png"
+        ],
+        "threshold": [
+            0.99
+        ],
+        "action": "Click",
+        "focus": "点击不进入战斗选项"
+    },
+    "演习_演习_Start_综合对抗_选择队伍_开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "开始战斗"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 3000,
+        "next": [
+            "演习_演习_Start_综合对抗_选择队伍_开始战斗_战斗结束"
+        ],
+        "focus": "点击开始战斗"
+    },
+    "演习_演习_Start_综合对抗_选择队伍_开始战斗_战斗结束": {
+        "recognition": "OCR",
+        "expected": [
+            "积分"
+        ],
+        "action": "Click",
+        "target": [
+            58,
+            697,
+            25,
+            21
+        ],
+        "next": [
+            "演习_演习_DoNothing"
+        ],
+        "post_delay": 1000,
+        "focus": "战斗结束，返回"
+    },
+    "演习_演习_Start_综合对抗_识别没有次数": {
+        "recognition": "OCR",
+        "expected": [
+            "(?<!\\d)0/5(?!\\d)"
+        ],
+        "action": "DoNothing",
+        "focus": "检查到没有次数，结束挑战"
+    },
+    "演习_演习_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "演习_演习_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "演习_演习_Start_常规演习_返回演习主界面": {
+        "next": [
+            "演习_演习_Start_常规演习_Is_演习主界面",
+            "[JumpBack]演习_CallBack_Button"
+        ]
+    },
+    "演习_演习_Start_常规演习_Is_演习主界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "演习主界面.png"
+        ],
+        "threshold": [
+            0.95
+        ]
+    },
+    "演习_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "next": [
+            "演习_演习_DoNothing"
+        ],
+        "post_delay": 300,
+        "focus": "点击返回按键"
+    },
+    "演习_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "演习_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "演习_ComeBack_Home": {
+        "next": [
+            "演习_Is_HomePage1",
+            "[JumpBack]演习_CallBack_Button",
+            "[JumpBack]演习_CallBack_Button1",
+            "[JumpBack]演习_CallBack_Button2"
+        ]
+    },
+    "演习_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "演习_Is_HomePage2",
+            "[JumpBack]演习_CallBack_Button",
+            "[JumpBack]演习_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "演习_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+    "演习_演习_DoNothing": {
+        "recognition": "OCR",
+        "action": "DoNothing"
+    }
+}

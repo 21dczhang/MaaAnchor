@@ -1,0 +1,182 @@
+{
+    "基建_Start": {
+        "next": [
+            "基建_Start_Is_HomePage1",
+            "[JumpBack]基建_CallBack_Button",
+            "[JumpBack]基建_CallBack_Button1",
+            "[JumpBack]基建_CallBack_Button2"
+        ],
+        "focus": "开始基建任务"
+    },
+    "基建_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "基建_Start_Is_HomePage2",
+            "[JumpBack]基建_CallBack_Button",
+            "[JumpBack]基建_CallBack_Button1",
+            "[JumpBack]基建_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "基建_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "基建_基建_Start"
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "基建_基建_Start": {
+        "recognition": "OCR",
+        "expected": [
+            "基建"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]基建_基建_Start_YiJianLingQu",
+            "[JumpBack]基建_基建_Start_YiJianRuZhu",
+            "[JumpBack]基建_基建_Start_PaiQianWu",
+            "基建_ComeBack_Home"
+        ],
+    },
+    "基建_基建_Start_YiJianLingQu": {
+        "recognition": "OCR",
+        "expected": [
+            "一键领取"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "next": [
+            "[JumpBack]基建_CallBack_Button1"
+        ],
+        "timeout": 4000,
+        "focus": "点击一键领取"
+    },
+    "基建_基建_Start_YiJianRuZhu": {
+        "recognition": "OCR",
+        "expected": [
+            "一键入驻"
+        ],
+        "action": "Click",
+        "max_hit": 2,
+        "timeout": 4000,
+        "focus": "点击一键入驻"
+    },
+    "基建_基建_Start_PaiQianWu": {
+        "recognition": "OCR",
+        "expected": [
+            "派遣坞"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ],
+        "max_hit": 1,
+        "post_delay": 3000,
+        "next": [
+            "基建_基建_Start_PaiQianWu_Click_待派遣",
+        ],
+        "focus": "点击派遣坞",
+    },
+    "基建_基建_Start_PaiQianWu_Click_待派遣": {
+        "recognition": "OCR",
+        "expected": [
+            "待派遣"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]基建_基建_Start_PaiQianWu_一键领取",
+            "[JumpBack]基建_基建_Start_PaiQianWu_一键派遣"
+        ],
+        "timeout": 6000
+    },
+    "基建_基建_Start_PaiQianWu_一键领取": {
+        "recognition": "OCR",
+        "expected": [
+            "一键领取"
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+        "next": [
+            "基建_CallBack_Button1"
+        ]
+    },
+    "基建_基建_Start_PaiQianWu_一键派遣": {
+        "recognition": "OCR",
+        "expected": [
+            "派遣"
+        ],
+        "roi": [
+            924,
+            598,
+            352,
+            122
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+    },
+    "基建_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "基建_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "基建_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "基建_ComeBack_Home": {
+        "next": [
+            "基建_Is_HomePage1",
+            "[JumpBack]基建_CallBack_Button",
+            "[JumpBack]基建_CallBack_Button1",
+            "[JumpBack]基建_CallBack_Button2"
+        ]
+    },
+    "基建_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "基建_Is_HomePage2",
+            "[JumpBack]基建_CallBack_Button",
+            "[JumpBack]基建_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "基建_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

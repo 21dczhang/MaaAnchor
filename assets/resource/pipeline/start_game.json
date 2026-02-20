@@ -1,0 +1,77 @@
+{
+    "StartGame_Start": {
+        "action": "StartApp",
+        "package": "com.leiyan.mdjl.an",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "StartGame_ClickStart",
+            "[JumpBack]StartGame_StartGame_Loading"
+        ],
+        "focus": "启动游戏"
+    },
+    "StartGame_StartGame_Loading": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "进入游戏-警告.png",
+            "锚点降临图标.png",
+            "进入游戏-修复图标.png"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中..."
+    },
+    "StartGame_ClickStart": {
+        "recognition": "OCR",
+        "expected": [
+            "开始"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "StartGame_Is_HomePage1",
+            "StartGame_ClickStart",
+            "[JumpBack]StartGame_CallBack_Button",
+            "[JumpBack]StartGame_CallBack_Button2"
+        ],
+        "focus": "点击开始接入"
+    },
+    "StartGame_CallBack_Button": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "StartGame_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "StartGame_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "StartGame_Is_HomePage2",
+            "[JumpBack]StartGame_CallBack_Button",
+            "[JumpBack]StartGame_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "StartGame_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

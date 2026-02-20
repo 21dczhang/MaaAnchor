@@ -1,0 +1,304 @@
+{
+    "情报副本_Start": {
+        "next": [
+            "情报副本_Start_Is_HomePage1",
+            "[JumpBack]情报副本_CallBack_Button",
+            "[JumpBack]情报副本_CallBack_Button1",
+            "[JumpBack]情报副本_CallBack_Button2"
+        ],
+        "focus": "开始情报副本任务"
+    },
+    "情报副本_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "情报副本_Start_Is_HomePage2",
+            "[JumpBack]情报副本_CallBack_Button",
+            "[JumpBack]情报副本_CallBack_Button1",
+            "[JumpBack]情报副本_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "情报副本_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "情报副本_情报副本_Go_作战"
+            //这里添加主任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "情报副本_情报副本_Go_作战": {
+        "recognition": "OCR",
+        "expected": [
+            "作战"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "情报副本_情报副本_Go_情报"
+        ]
+    },
+    "情报副本_情报副本_Go_情报": {
+        "recognition": "OCR",
+        "expected": [
+            "情报"
+        ],
+        "action": "Click",
+        "post_delay": 2000,
+        "next": [
+            "情报副本_情报副本_情报_Start"
+        ]
+    },
+    "情报副本_情报副本_情报_Start": {
+        "next": [
+            "[JumpBack]情报副本_情报副本_角色1",
+            "[JumpBack]情报副本_情报副本_角色2",
+            "情报副本_ComeBack_Home"
+        ]
+    },
+    "情报副本_情报副本_角色1": {
+        "recognition": "OCR",
+        "expected": [
+            "白蔷薇" //角色在这里添加
+        ],
+        "action": "Click",
+        "next": [
+            "情报副本_情报副本_情报_角色1_战斗_检查次数"
+        ],
+        "max_hit": 1,
+    },
+    "情报副本_情报副本_角色2": {
+        "recognition": "OCR",
+        "expected": [
+            "鸣晔" //角色在这里添加
+        ],
+        "action": "Click",
+        "next": [
+            "情报副本_情报副本_情报_角色2_战斗_检查次数"
+        ],
+        "max_hit": 1,
+    },
+    "情报副本_情报副本_情报_角色1_战斗_检查次数": {
+        "next": [
+            "[JumpBack]情报副本_情报副本_情报_角色1_战斗_有剩余次数",
+            "情报副本_情报副本_情报_角色1_战斗_无剩余次数",
+        ]
+    },
+    "情报副本_情报副本_情报_角色2_战斗_检查次数": {
+        "next": [
+            "[JumpBack]情报副本_情报副本_情报_角色2_战斗_有剩余次数",
+            "情报副本_情报副本_情报_角色2_战斗_无剩余次数",
+        ]
+    },
+    "情报副本_情报副本_情报_角色1_战斗_有剩余次数": {
+        "recognition": "OCR",
+        "expected": [
+            "当前战员情报剩余挑战次数：[1-2]"
+        ],
+        "next": [
+            "情报副本_情报副本_情报_角色1_战斗_Start"
+        ],
+        "focus": "有剩余次数，继续挑战"
+    },
+    "情报副本_情报副本_情报_角色1_战斗_无剩余次数": {
+        "recognition": "OCR",
+        "expected": [
+            "当前战员情报剩余挑战次数：[0]"
+        ],
+        "next": [
+            "情报副本_情报副本_Start_角色1_返回情报主界面"
+        ],
+        "focus": "无剩余次数，结束"
+    },
+    "情报副本_情报副本_情报_角色2_战斗_有剩余次数": {
+        "recognition": "OCR",
+        "expected": [
+            "当前战员情报剩余挑战次数：[1-2]"
+        ],
+        "next": [
+            "情报副本_情报副本_情报_角色2_战斗_Start"
+        ],
+        "focus": "有剩余次数，继续挑战"
+    },
+    "情报副本_情报副本_情报_角色2_战斗_无剩余次数": {
+        "recognition": "OCR",
+        "expected": [
+            "当前战员情报剩余挑战次数：[0]"
+        ],
+        "next": [
+            "情报副本_情报副本_Start_角色2_返回情报主界面"
+        ],
+        "focus": "无剩余次数，结束"
+    },
+    "情报副本_情报副本_情报_角色1_战斗_Start": {
+        "next": [
+            "[JumpBack]情报副本_情报副本_角色1_情报_战斗_选择EP3",
+        ],
+        "timeout": 5000
+    },
+    "情报副本_情报副本_情报_角色2_战斗_Start": {
+        "next": [
+            "[JumpBack]情报副本_情报副本_角色2_情报_战斗_选择EP3",
+        ],
+        "timeout": 5000
+    },
+    "情报副本_情报副本_角色1_情报_战斗_选择EP3": {
+        "recognition": "OCR",
+        "expected": [
+            "EP-3"
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "action": "Click",
+        "focus": "选择EP-3",
+        "next": [
+            "[JumpBack]情报副本_情报副本_Start_加载中",
+            "[JumpBack]情报副本_情报副本_Start_战斗中",
+            "[JumpBack]情报副本_情报副本_情报_战斗_跳转_出战",
+            "[JumpBack]情报副本_CallBack_Button1"
+        ],
+        "max_hit": 3,
+        "timeout": 10000
+    },
+    "情报副本_情报副本_角色2_情报_战斗_选择EP3": {
+        "recognition": "OCR",
+        "expected": [
+            "EP-3"
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "action": "Click",
+        "focus": "选择EP-3",
+        "max_hit": 3,
+        "next": [
+            "[JumpBack]情报副本_情报副本_Start_加载中",
+            "[JumpBack]情报副本_情报副本_Start_战斗中",
+            "[JumpBack]情报副本_情报副本_情报_战斗_跳转_出战",
+            "[JumpBack]情报副本_CallBack_Button1"
+        ],
+        "timeout": 10000
+    },
+    "情报副本_情报副本_情报_战斗_跳转_出战": {
+        "recognition": "OCR",
+        "expected": [
+            "挑战",
+            "出战"
+        ],
+        "roi": [
+            355,
+            2,
+            913,
+            682
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "action": "Click"
+    },
+    "情报副本_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "情报副本_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "情报副本_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "情报副本_ComeBack_Home": {
+        "next": [
+            "情报副本_Is_HomePage1",
+            "[JumpBack]情报副本_CallBack_Button",
+            "[JumpBack]情报副本_CallBack_Button1",
+            "[JumpBack]情报副本_CallBack_Button2"
+        ]
+    },
+    "情报副本_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "情报副本_Is_HomePage2",
+            "[JumpBack]情报副本_CallBack_Button",
+            "[JumpBack]情报副本_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "情报副本_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+    "情报副本_情报副本_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "情报副本_情报副本_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "情报副本_情报副本_Start_角色1_返回情报主界面": {
+        "next": [
+            "情报副本_情报副本_Start_角色1_Is_情报主界面",
+            "[JumpBack]情报副本_CallBack_Button"
+        ]
+    },
+    "情报副本_情报副本_Start_角色1_Is_情报主界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "主线图标.png"
+        ],
+        "threshold": [
+            0.95
+        ]
+    },
+    "情报副本_情报副本_Start_角色2_返回情报主界面": {
+        "next": [
+            "情报副本_情报副本_Start_角色2_Is_情报主界面",
+            "[JumpBack]情报副本_CallBack_Button"
+        ]
+    },
+    "情报副本_情报副本_Start_角色2_Is_情报主界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "主线图标.png"
+        ],
+        "threshold": [
+            0.95
+        ]
+    },
+}

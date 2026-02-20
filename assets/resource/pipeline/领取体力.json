@@ -1,0 +1,157 @@
+{
+    "领取体力_Start": {
+        "next": [
+            "领取体力_Start_Is_HomePage1",
+            "[JumpBack]领取体力_CallBack_Button",
+            "[JumpBack]领取体力_CallBack_Button1",
+            "[JumpBack]领取体力_CallBack_Button2"
+        ],
+        "focus": "开始领取体力任务"
+    },
+    "领取体力_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "领取体力_Start_Is_HomePage2",
+            "[JumpBack]领取体力_CallBack_Button",
+            "[JumpBack]领取体力_CallBack_Button1",
+            "[JumpBack]领取体力_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "领取体力_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "领取体力_领取体力_Start" //真正任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "领取体力_领取体力_Start": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "福利图标.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            //这里JumpBack添加任务
+            "[JumpBack]领取体力_领取体力_寻找免费体力_点击出勤",
+            "领取体力_ComeBack_Home"
+        ],
+    },
+    "领取体力_领取体力_寻找免费体力_点击出勤": {
+        "recognition": "OCR",
+        "expected": [
+            "出勤"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "next": [
+            "[JumpBack]领取体力_领取体力_寻找免费体力_点击领取",
+            "领取体力_领取体力_寻找免费体力_点击领取_Inverse"
+        ],
+        "post_wait_freezes": 1000,
+        "focus": "点击出勤津贴"
+    },
+    "领取体力_领取体力_寻找免费体力_点击领取": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "免费体力-领取.png"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]领取体力_CallBack_Button1"
+        ],
+        "focus": "领取免费体力",
+        "timeout": 3000
+    },
+    "领取体力_领取体力_寻找免费体力_点击领取_Inverse": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "免费体力-领取.png"
+        ],
+        "action": "Click",
+        "inverse": true,
+        "next": [
+            "领取体力_ComeBack_Home"
+        ],
+        "focus": "没有可以领取的免费体力",
+    },
+    "领取体力_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "领取体力_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "领取体力_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "领取体力_领取体力_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "领取体力_领取体力_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "领取体力_ComeBack_Home": {
+        "next": [
+            "领取体力_Is_HomePage1",
+            "[JumpBack]领取体力_CallBack_Button",
+            "[JumpBack]领取体力_CallBack_Button1",
+            "[JumpBack]领取体力_CallBack_Button2"
+        ]
+    },
+    "领取体力_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "领取体力_Is_HomePage2",
+            "[JumpBack]领取体力_CallBack_Button",
+            "[JumpBack]领取体力_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "领取体力_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

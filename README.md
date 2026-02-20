@@ -9,15 +9,35 @@
 
 </div>
 
-本仓库为 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 所提供的项目模板，开发者可基于此模板直接创建自己的 MaaXXX 项目。
+本项目是基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 开发的自动化脚本，专为手游 **《锚点降临》** 设计，支持在 **MuMu 模拟器** 上自动完成日常任务、刷图等操作。
+
+> ✅ 适配分辨率：**1280 × 720**  
+> ✅ 适配 DPI：**240**  
+> ✅ 推荐模拟器：**MuMu 模拟器**
+> 支持功能：
+>
+> * 启动游戏             OK
+> * 基建领取  & 派遣      OK
+> * 领取商城免费礼包      OK
+> * 领取联盟筹备          OK
+> * 演习                 OK
+> * 领取特供免费礼包      OK
+> * 情报副本             OK
+> * 领取免费体力         OK
+> * 领取邮箱             OK
+> * 体力消耗
+> * 免费神血铸痕
+> * 日常奖励领取
+> * 异想回渊
+> * 无限城
 
 > **MaaFramework** 是基于图像识别技术、运用 [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) 开发经验去芜存菁、完全重写的新一代自动化黑盒测试框架。
 > 低代码的同时仍拥有高扩展性，旨在打造一款丰富、领先、且实用的开源库，助力开发者轻松编写出更好的黑盒测试程序，并推广普及。
 
 ## 即刻开始
 
-- [📄 快速开始](https://github.com/MaaXYZ/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
-- [🎞️ 视频教程](https://www.bilibili.com/video/BV1yr421E7MW)
+* [📄 快速开始](https://github.com/MaaXYZ/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
+* [🎞️ 视频教程](https://www.bilibili.com/video/BV1yr421E7MW)
 
 ## 如何开发
 
@@ -63,9 +83,15 @@
 
     ```bash
     # CI 检测到 tag 会自动进行发版
-    git tag v1.0.0
-    git push origin v1.0.0
+    git tag v0.0.1
+    git push origin v0.0.1
     ```
+
+    撤销提交部分：git log --oneline -10
+    git reset --hard HEAD ~1
+    git push --force-with-lease origin main
+    git tag -d v0.0.1
+    git push origin --delete v1.2.3
 
 7. 更多操作，请参考 [个性化配置](./docs/zh_cn/个性化配置.md)（可选）
 
@@ -100,9 +126,9 @@ Win10 或者 Win11 系统自带了一份 "Python"，但它其实只是一个安�
 这里是《项目模板》仓库，它仅仅是一个模板，一般很少会修改，开发者也较少关注。  
 在此仓库请仅提问模板相关问题，其他问题最好前往对应的仓库提出，如果有 log，最好也带上它（`debug/maa.log` 文件）
 
-- MaaFW 本身及 MaaPiCli 的问题：[MaaFramework/issues](https://github.com/MaaXYZ/MaaFramework/issues)
-- MaaDebugger 的问题：[MaaDebugger/issues](https://github.com/MaaXYZ/MaaDebugger/issues)
-- 不知道算是哪里的、其他疑问等：[讨论区](https://github.com/MaaXYZ/MaaFramework/discussions)
+* MaaFW 本身及 MaaPiCli 的问题：[MaaFramework/issues](https://github.com/MaaXYZ/MaaFramework/issues)
+* MaaDebugger 的问题：[MaaDebugger/issues](https://github.com/MaaXYZ/MaaDebugger/issues)
+* 不知道算是哪里的、其他疑问等：[讨论区](https://github.com/MaaXYZ/MaaFramework/discussions)
 
 ### 4. OCR 文字识别一直没有识别结果，报错 "Failed to load det or rec", "ocrer_ is null"
 

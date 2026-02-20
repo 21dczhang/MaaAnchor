@@ -1,0 +1,200 @@
+{
+    "神血铸痕免费抽_Start": {
+        "next": [
+            "神血铸痕免费抽_Start_Is_HomePage1",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button1",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button2"
+        ],
+        "focus": "开始神血铸痕免费抽任务"
+    },
+    "神血铸痕免费抽_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "神血铸痕免费抽_Start_Is_HomePage2",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button1",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "神血铸痕免费抽_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "神血铸痕免费抽_神血铸痕免费抽_Start" //真正任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_Start": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "action": "Click",
+        "post_delay": 3000,
+        "next": [
+            //这里JumpBack添加任务
+            "[JumpBack]神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面",
+            "[JumpBack]神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_Inverse",
+            "神血铸痕免费抽_ComeBack_Home"
+        ],
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "普通神血铸痕图标.png"
+        ],
+        "action": "Click",
+        "next": [
+            "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽"
+        ],
+        "post_wait_freezes": 1000,
+        "max_hit": 1,
+        "timeout": 1500,
+        "focus": "已经识别到神血铸痕"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "免费塑痕一次.png"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽_点击跳过"
+        ],
+        "focus": "点击免费抽取"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽_点击跳过": {
+        "recognition": "OCR",
+        "expected": [
+            "跳过"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 1000,
+        "next": [
+            "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽_点击跳过",
+            "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽_结果界面"
+        ]
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_点击免费抽_结果界面": {
+        "recognition": "OCR",
+        "expected": [
+            "额外"
+        ],
+        "action": "Click",
+        "target": [
+            101,
+            692,
+            26,
+            18
+        ],
+        "focus": "结果界面，返回"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_已经到普通神血铸痕界面_Inverse": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "普通神血铸痕图标.png"
+        ],
+        "action": "Click",
+        "next": [
+            "神血铸痕免费抽_神血铸痕免费抽_滑动"
+        ],
+        "post_wait_freezes": 1000,
+        "inverse": true,
+        "timeout": 1500,
+        "max_hit": 2,
+        "focus": "未到神血铸痕界面，滑动"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_滑动": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            521,
+            685
+        ],
+        "end": [
+            27,
+            683
+        ],
+        "post_delay": 1000
+    },
+    "神血铸痕免费抽_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "神血铸痕免费抽_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "神血铸痕免费抽_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "神血铸痕免费抽_神血铸痕免费抽_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "神血铸痕免费抽_ComeBack_Home": {
+        "next": [
+            "神血铸痕免费抽_Is_HomePage1",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button1",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button2"
+        ]
+    },
+    "神血铸痕免费抽_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "神血铸痕免费抽_Is_HomePage2",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button",
+            "[JumpBack]神血铸痕免费抽_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "神血铸痕免费抽_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

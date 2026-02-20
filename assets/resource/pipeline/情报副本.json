@@ -163,7 +163,7 @@
             "[JumpBack]情报副本_情报副本_情报_战斗_跳转_出战",
             "[JumpBack]情报副本_CallBack_Button1"
         ],
-        "max_hit": 3,
+        "max_hit": 2,
         "timeout": 10000
     },
     "情报副本_情报副本_角色2_情报_战斗_选择EP3": {
@@ -175,7 +175,7 @@
         "index": -1,
         "action": "Click",
         "focus": "选择EP-3",
-        "max_hit": 3,
+        "max_hit": 2,
         "next": [
             "[JumpBack]情报副本_情报副本_Start_加载中",
             "[JumpBack]情报副本_情报副本_Start_战斗中",

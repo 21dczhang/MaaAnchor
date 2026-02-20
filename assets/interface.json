@@ -56,8 +56,23 @@
             ]
         },
         {
+            "name": "领取体力",
+            "entry": "领取体力_Start",
+            "default_check": true
+        },
+        {
+            "name": "领取邮箱",
+            "entry": "领取邮箱_Start",
+            "default_check": true
+        },
+        {
+            "name": "神血免费抽",
+            "entry": "神血铸痕免费抽_Start",
+            "default_check": true
+        },
+        {
             "name": "测试任务2",
-            "entry": "演习_演习_Start_战斗结束"
+            "entry": "神血铸痕免费抽_神血铸痕免费抽_滑动"
         }
     ],
     "option": {

@@ -71,6 +71,11 @@
             "default_check": true
         },
         {
+            "name": "事务奖励领取",
+            "entry": "日常奖励领取_Start",
+            "default_check": true
+        },
+        {
             "name": "测试任务2",
             "entry": "神血铸痕免费抽_神血铸痕免费抽_滑动"
         }

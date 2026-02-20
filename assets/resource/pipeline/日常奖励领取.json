@@ -1,0 +1,195 @@
+{
+    "日常奖励领取_Start": {
+        "next": [
+            "日常奖励领取_Start_Is_HomePage1",
+            "[JumpBack]日常奖励领取_CallBack_Button",
+            "[JumpBack]日常奖励领取_CallBack_Button1",
+            "[JumpBack]日常奖励领取_CallBack_Button2"
+        ],
+        "focus": "开始日常奖励领取任务"
+    },
+    "日常奖励领取_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "日常奖励领取_Start_Is_HomePage2",
+            "[JumpBack]日常奖励领取_CallBack_Button",
+            "[JumpBack]日常奖励领取_CallBack_Button1",
+            "[JumpBack]日常奖励领取_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "日常奖励领取_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "日常奖励领取_日常奖励领取_Start" //真正任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "日常奖励领取_日常奖励领取_Start": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "事务图标.png"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            //这里JumpBack添加任务
+            "[JumpBack]日常奖励领取_日常奖励领取_日事务",
+            "[JumpBack]日常奖励领取_日常奖励领取_周事务",
+            "日常奖励领取_ComeBack_Home"
+        ],
+    },
+    "日常奖励领取_日常奖励领取_日事务": {
+        "recognition": "OCR",
+        "expected": [
+            "日事务"
+        ],
+        "action": "Click",
+        "roi": [
+            38,
+            114,
+            221,
+            156
+        ],
+        "next": [
+            "日常奖励领取_日常奖励领取_日事务_一键领取",
+            "日常奖励领取_日常奖励领取_日事务_领取宝箱"
+        ],
+        "timeout": 3000,
+        "max_hit": 1
+    },
+    "日常奖励领取_日常奖励领取_日事务_一键领取": {
+        "recognition": "OCR",
+        "expected": [
+            "一键领取"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "日常奖励领取_日常奖励领取_日事务_领取宝箱",
+            "[JumpBack]日常奖励领取_CallBack_Button1"
+        ],
+        "timeout": 3000
+    },
+    "日常奖励领取_日常奖励领取_日事务_领取宝箱": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "日事务-宝箱.png"
+        ],
+        "order_by": "Horizontal",
+        "index": -1,
+        "action": "Click",
+        "next": [
+            "[JumpBack]日常奖励领取_CallBack_Button1"
+        ],
+        "timeout": 3000
+    },
+    "日常奖励领取_日常奖励领取_周事务": {
+        "recognition": "OCR",
+        "expected": [
+            "周事务"
+        ],
+        "action": "Click",
+        "roi": [
+            38,
+            114,
+            221,
+            156
+        ],
+        "next": [
+            "日常奖励领取_日常奖励领取_周事务_一键领取"
+        ],
+        "timeout": 3000,
+        "max_hit": 1
+    },
+    "日常奖励领取_日常奖励领取_周事务_一键领取": {
+        "recognition": "OCR",
+        "expected": [
+            "一键领取"
+        ],
+        "action": "Click",
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]日常奖励领取_CallBack_Button1"
+        ],
+        "timeout": 3000
+    },
+    "日常奖励领取_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "日常奖励领取_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "日常奖励领取_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "日常奖励领取_日常奖励领取_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "日常奖励领取_日常奖励领取_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "日常奖励领取_ComeBack_Home": {
+        "next": [
+            "日常奖励领取_Is_HomePage1",
+            "[JumpBack]日常奖励领取_CallBack_Button",
+            "[JumpBack]日常奖励领取_CallBack_Button1",
+            "[JumpBack]日常奖励领取_CallBack_Button2"
+        ]
+    },
+    "日常奖励领取_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "日常奖励领取_Is_HomePage2",
+            "[JumpBack]日常奖励领取_CallBack_Button",
+            "[JumpBack]日常奖励领取_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "日常奖励领取_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

@@ -1,0 +1,230 @@
+{
+    "无限城_Start": {
+        "next": [
+            "无限城_Start_Is_HomePage1",
+            "[JumpBack]无限城_CallBack_Button",
+            "[JumpBack]无限城_CallBack_Button1",
+            "[JumpBack]无限城_CallBack_Button2"
+        ],
+        "focus": "开始无限城任务"
+    },
+    "无限城_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "无限城_Start_Is_HomePage2",
+            "[JumpBack]无限城_CallBack_Button",
+            "[JumpBack]无限城_CallBack_Button1",
+            "[JumpBack]无限城_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "无限城_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "无限城_无限城_Start" //真正任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "无限城_无限城_Start": {
+        "recognition": "OCR",
+        "expected": [
+            "作战"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            //这里JumpBack添加任务
+            "[JumpBack]无限城_无限城_Start_Go_无限城主页",
+            "[JumpBack]无限城_无限城_Start_开始挑战_Start",
+            "无限城_ComeBack_Home"
+        ],
+    },
+    "无限城_无限城_Start_开始挑战_Start": {
+        "next": [
+            "[JumpBack]无限城_无限城_Start_开始挑战_选择关卡",
+        ],
+        "max_hit": 1,
+        "timeout": 10000
+    },
+    "无限城_无限城_Start_开始挑战_选择关卡": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "钱币图标.png"
+        ],
+        "action": "Click",
+        "target_offset": [
+            -250,
+            0,
+            0,
+            0
+        ],
+        "threshold": [
+            0.95
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "next": [
+            "[JumpBack]无限城_无限城_Start_加载中",
+            "[JumpBack]无限城_无限城_Start_开始挑战_出战",
+            "无限城_无限城_Start_开始挑战_跳过"
+        ]
+    },
+    "无限城_无限城_Start_开始挑战_跳过": {
+        "recognition": "OCR",
+        "expected": [
+            "跳过",
+        ],
+        "next": [
+            "[JumpBack]无限城_无限城_Start_加载中",
+            "无限城_无限城_Start_开始挑战_跳过_确定"
+        ],
+        "timeout": 15000,
+        "action": "Click",
+    },
+    "无限城_无限城_Start_开始挑战_跳过_确定": {
+        "recognition": "OCR",
+        "expected": [
+            "确定",
+        ],
+        "next": [
+            "[JumpBack]无限城_无限城_Start_加载中",
+            "无限城_无限城_Start_开始挑战_无限城_Is_主界面",
+            "[JumpBack]无限城_CallBack_Button1"
+        ],
+        "timeout": 60000,
+        "action": "Click",
+    },
+    "无限城_无限城_Start_开始挑战_无限城_Is_主界面": {
+        "recognition": "OCR",
+        "expected": [
+            "无限城"
+        ],
+        "action": "DoNothing"
+    },
+    "无限城_无限城_Start_开始挑战_出战": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "出战.png",
+            "挑战.png"
+        ],
+        "threshold": [
+            0.9,
+            0.9
+        ],
+        "action": "Click",
+    },
+    "无限城_无限城_Start_Go_无限城主页": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "挑战图标.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "next": [
+            "无限城_无限城_Start_Go_无限城主页_点击无限城",
+            "[JumpBack]无限城_无限城_Start_Go_无限城主页_未寻找到无限城_滑动",
+            "无限城_无限城_Start_Go_无限城主页"
+        ]
+    },
+    "无限城_无限城_Start_Go_无限城主页_点击无限城": {
+        "recognition": "OCR",
+        "expected": [
+            "无限"
+        ],
+        "action": "Click"
+    },
+    "无限城_无限城_Start_Go_无限城主页_未寻找到无限城_滑动": {
+        "action": "Swipe",
+        "begin": [
+            1158,
+            544
+        ],
+        "end": [
+            111,
+            544
+        ],
+        "post_delay": 1000,
+        "focus": "滑动..."
+    },
+    "无限城_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "无限城_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "无限城_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "无限城_无限城_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "无限城_无限城_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "无限城_ComeBack_Home": {
+        "next": [
+            "无限城_Is_HomePage1",
+            "[JumpBack]无限城_CallBack_Button",
+            "[JumpBack]无限城_CallBack_Button1",
+            "[JumpBack]无限城_CallBack_Button2"
+        ]
+    },
+    "无限城_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "无限城_Is_HomePage2",
+            "[JumpBack]无限城_CallBack_Button",
+            "[JumpBack]无限城_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "无限城_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

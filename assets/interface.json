@@ -71,13 +71,24 @@
             "default_check": true
         },
         {
+            "name": "特供免费礼包",
+            "entry": "特供免费礼包_Start",
+            "default_check": true
+        },
+        {
             "name": "事务奖励领取",
             "entry": "日常奖励领取_Start",
             "default_check": true
         },
         {
+            "name": "无限城",
+            "entry": "无限城_Start",
+            "description": "需默认配置能打得过的队伍",
+            "default_check": true
+        },
+        {
             "name": "测试任务2",
-            "entry": "神血铸痕免费抽_神血铸痕免费抽_滑动"
+            "entry": "无限城_Start"
         }
     ],
     "option": {

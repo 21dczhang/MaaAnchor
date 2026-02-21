@@ -160,7 +160,7 @@
         "next": [
             "[JumpBack]情报副本_情报副本_Start_加载中",
             "[JumpBack]情报副本_情报副本_Start_战斗中",
-            "[JumpBack]情报副本_情报副本_情报_战斗_跳转_出战",
+            "[JumpBack]情报副本_情报副本_情报1_战斗_跳转_出战",
             "[JumpBack]情报副本_CallBack_Button1"
         ],
         "max_hit": 2,
@@ -179,12 +179,13 @@
         "next": [
             "[JumpBack]情报副本_情报副本_Start_加载中",
             "[JumpBack]情报副本_情报副本_Start_战斗中",
-            "[JumpBack]情报副本_情报副本_情报_战斗_跳转_出战",
+            "[JumpBack]情报副本_情报副本_情报2_战斗_跳转_出战",
+            "情报副本_情报副本_情报_战斗_跳转_出战_次数不足",
             "[JumpBack]情报副本_CallBack_Button1"
         ],
         "timeout": 10000
     },
-    "情报副本_情报副本_情报_战斗_跳转_出战": {
+    "情报副本_情报副本_情报1_战斗_跳转_出战": {
         "recognition": "OCR",
         "expected": [
             "挑战",
@@ -198,7 +199,32 @@
         ],
         "order_by": "Vertical",
         "index": -1,
+        "max_hit": 8,
         "action": "Click"
+    },
+    "情报副本_情报副本_情报2_战斗_跳转_出战": {
+        "recognition": "OCR",
+        "expected": [
+            "挑战",
+            "出战"
+        ],
+        "roi": [
+            355,
+            2,
+            913,
+            682
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "max_hit": 8,
+        "action": "Click"
+    },
+    "情报副本_情报副本_情报_战斗_跳转_出战_次数不足": {
+        "recognition": "OCR",
+        "expected": [
+            "不足"
+        ],
+        "action": "DoNothing"
     },
     "情报副本_CallBack_Button": {
         "recognition": "TemplateMatch",

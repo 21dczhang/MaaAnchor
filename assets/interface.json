@@ -29,6 +29,9 @@
         {
             "name": "基建领取  & 派遣",
             "entry": "基建_Start",
+            "option": [
+                "基建机器人加速选择"
+            ],
             "default_check": true
         },
         {
@@ -76,6 +79,15 @@
             "default_check": true
         },
         {
+            "name": "战斗-消耗体力",
+            "entry": "战斗_Start",
+            "description": "目前只支持自动打模组",
+            "option": [
+                "战斗-模组选择"
+            ],
+            "default_check": true
+        },
+        {
             "name": "事务奖励领取",
             "entry": "日常奖励领取_Start",
             "default_check": true
@@ -88,7 +100,7 @@
         },
         {
             "name": "测试任务2",
-            "entry": "无限城_Start"
+            "entry": "战斗_战斗_Goto_模组测试_选择模组2_选择次数_Start"
         }
     ],
     "option": {
@@ -120,6 +132,155 @@
                     "expected": "{角色2名称}"
                 }
             }
+        },
+        "基建机器人加速选择": {
+            "type": "select",
+            "description": "基建机器人加速选项，目前只支持提纯车间和总生产线，并且总生产线需手动设置好模板",
+            "default_case": "提纯车间",
+            "cases": [
+                {
+                    "name": "提纯车间",
+                    "pipeline_override": {
+                        "基建_基建_Start_机器人加速": {
+                            "expected": "提纯"
+                        }
+                    }
+                },
+                {
+                    "name": "总生产线",
+                    "pipeline_override": {
+                        "基建_基建_Start_机器人加速": {
+                            "expected": "总生"
+                        }
+                    }
+                }
+            ]
+        },
+        "战斗-模组选择": {
+            "type": "select",
+            "default_case": "森罗侵浸",
+            "cases": [
+                {
+                    "name": "勇士之力",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "勇士之力"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "千雷麟集",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "千雷"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "炽天炽地",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "炽地"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "霜寒蚀体",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "霜寒"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "森罗侵浸",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "森罗"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "辉耀之鸣",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "辉耀之鸣"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "怒涛之势",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "怒涛之势"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "心之鸣动",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "心之鸣动"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "攻击增幅",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "攻击增幅"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "生命增幅",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "生命增幅"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "灵犀明鹿",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "明鹿"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "雳闪穹鸣",
+                    "pipeline_override": {
+                        "战斗_战斗_Goto_模组测试_选择模组2": {
+                            "expected": [
+                                "穹鸣"
+                            ]
+                        }
+                    }
+                }
+            ]
         }
     }
 }

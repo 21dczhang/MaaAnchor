@@ -89,6 +89,15 @@
             "联盟 - 普通筹备.png"
         ],
         "action": "Click",
+        "roi": [
+            528,
+            162,
+            580,
+            131
+        ],
+        "threshold": [
+            0.95
+        ],
         "next": [
             "[JumpBack]联盟_CallBack_Button1"
         ],

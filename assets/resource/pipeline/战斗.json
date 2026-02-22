@@ -1,0 +1,395 @@
+{
+    "战斗_Start": {
+        "next": [
+            "战斗_Start_Is_HomePage1",
+            "[JumpBack]战斗_CallBack_Button",
+            "[JumpBack]战斗_CallBack_Button1",
+            "[JumpBack]战斗_CallBack_Button2"
+        ],
+        "focus": "开始战斗任务"
+    },
+    "战斗_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "战斗_Start_Is_HomePage2",
+            "[JumpBack]战斗_CallBack_Button",
+            "[JumpBack]战斗_CallBack_Button1",
+            "[JumpBack]战斗_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查"
+    },
+    "战斗_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "战斗_战斗_Start"
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "战斗_战斗_Start": {
+        "recognition": "OCR",
+        "expected": [
+            "作战"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]战斗_战斗_Goto_资源界面",
+            "[JumpBack]战斗_战斗_Goto_模组测试",
+            "[JumpBack]战斗_战斗_Goto_资源获取",
+            "[JumpBack]战斗_战斗_Goto_潜能激发",
+            "战斗_ComeBack_Home"
+        ],
+        "focus": "点击【作战】按钮，进入战斗子菜单"
+    },
+    "战斗_战斗_Goto_资源界面": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "资源图标.png"
+        ],
+        "action": "Click",
+        "next": [
+            "战斗_战斗_Goto_资源界面_选择"
+        ],
+        "max_hit": 1,
+        "focus": "点击资源图标，准备进入资源界面"
+    },
+    "战斗_战斗_Goto_资源界面_选择": {
+        "recognition": "OCR",
+        "expected": [
+            "模组测试"
+        ],
+        "action": "Click",
+        "post_delay": 1500,
+        "focus": "识别到【模组测试】选项，点击进入"
+    },
+    "战斗_战斗_Goto_模组测试": {
+        "recognition": "OCR",
+        "expected": [
+            "橙"
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组"
+        ],
+        "focus": "点击橙色区域，进入模组测试页面"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组": {
+        "recognition": "OCR",
+        "expected": [
+            "选择模组"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]战斗_战斗_Goto_模组测试_选择模组_滑动1次",
+            "战斗_战斗_Goto_模组测试_选择模组2"
+        ],
+        "focus": "点击【选择模组】按钮"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组_滑动1次": {
+        "max_hit": 1,
+        "action": "Swipe",
+        "begin": [
+            820,
+            572
+        ],
+        "end": [
+            820,
+            212
+        ],
+        "focus": "向下滑动模组列表"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2": {
+        "recognition": "OCR",
+        "expected": [
+            "森罗"
+        ],
+        "roi": [
+            117,
+            140,
+            701,
+            468
+        ],
+        "action": "Click",
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_确认"
+        ],
+        "focus": "在列表中识别并点击 模组"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_确认": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "选择.png",
+            "使用中.png"
+        ],
+        "action": "Click",
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_确认_关闭"
+        ],
+        "focus": "确认选择该模组（点击【选择】或【使用中】）"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_确认_关闭": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键2.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "max_hit": 1,
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_选择次数_Start"
+        ],
+        "action": "Click",
+        "focus": "关闭模组选择窗口"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_选择次数_Start": {
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_默认体力不足",
+            "战斗_战斗_Goto_模组测试_选择模组2_默认体力足"
+        ],
+        "focus": "开始判断当前挑战次数是否超出体力上限"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力不足": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "红色0.png"
+        ],
+        "roi": [
+            947,
+            561,
+            147,
+            35
+        ],
+        "threshold": [
+            0.9
+        ],
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_默认体力不足_减少到体力足够",
+            "[JumpBack]战斗_战斗_Goto_模组测试_选择模组2_默认体力不足_减少次数"
+        ],
+        "timeout": 8000,
+        "focus": "默认次数，体力不足以消耗，需要减少次数"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力足": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "黑色0.png"
+        ],
+        "roi": [
+            947,
+            561,
+            147,
+            35
+        ],
+        "threshold": [
+            0.9
+        ],
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_默认体力足_增加到体力不足",
+            "[JumpBack]战斗_战斗_Goto_模组测试_选择模组2_默认体力足够_增加次数"
+        ],
+        "focus": "默认次数，体力足以消耗，尝试增加挑战次数"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力不足_减少次数": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "减号.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "max_hit": 9,
+        "action": "Click",
+        "focus": "点击【减号】减少挑战次数"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力足够_增加次数": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "加号.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "focus": "点击【加号】增加挑战次数"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力不足_减少到体力足够": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "黑色0.png"
+        ],
+        "roi": [
+            947,
+            561,
+            147,
+            35
+        ],
+        "threshold": [
+            0.9
+        ],
+        "next": [
+            "战斗_战斗_Goto_模组测试_选择模组2_开始战斗"
+        ],
+        "focus": "体力已足够，准备开始战斗"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力足_增加到体力不足": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "红色0.png"
+        ],
+        "roi": [
+            947,
+            561,
+            147,
+            35
+        ],
+        "threshold": [
+            0.9
+        ],
+        "next": [
+            "[JumpBack]战斗_战斗_Goto_模组测试_选择模组2_默认体力足_增加到体力不足_减少1次",
+            "战斗_战斗_Goto_模组测试_选择模组2_开始战斗"
+        ],
+        "focus": "挑战次数已达体力上限，准备开始战斗"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_默认体力足_增加到体力不足_减少1次": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "减号.png"
+        ],
+        "threshold": [
+            0.9
+        ],
+        "action": "Click",
+        "max_hit": 1,
+        "focus": "微调：减少1次挑战次数以匹配体力"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_开始战斗": {
+        "recognition": "OCR",
+        "expected": [
+            "挑战",
+            "出战"
+        ],
+        "action": "Click",
+        "order_by": "Vertical",
+        "index": -1,
+        "next": [
+            "[JumpBack]战斗_战斗_Start_加载中",
+            "战斗_战斗_Goto_模组测试_选择模组2_开始战斗",
+            "战斗_战斗_Goto_模组测试_选择模组2_开始战斗_跳过"
+        ],
+        "focus": "点击【挑战】或【出战】按钮开始战斗"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_开始战斗_跳过": {
+        "recognition": "OCR",
+        "expected": [
+            "跳过"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            "[JumpBack]战斗_CallBack_Button1",
+            "战斗_战斗_Goto_模组测试_选择模组2_已经回到主界面"
+        ],
+        "focus": "点击【跳过】加速战斗结算"
+    },
+    "战斗_战斗_Goto_模组测试_选择模组2_已经回到主界面": {
+        "recognition": "OCR",
+        "expected": [
+            "模组测试"
+        ],
+        "action": "DoNothing",
+        "focus": "检测到已返回模组测试界面，流程结束"
+    },
+    "战斗_战斗_Goto_资源获取": {
+        "max_hit": 1,
+        "enabled": false,
+        "focus": "【资源获取】路径未启用"
+    },
+    "战斗_战斗_Goto_潜能激发": {
+        "max_hit": 1,
+        "enabled": false,
+        "focus": "【潜能激发】路径未启用"
+    },
+    "战斗_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "战斗_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "战斗_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "战斗_战斗_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click",
+        "focus": "战斗中，点击跳过或回合操作"
+    },
+    "战斗_战斗_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "战斗_ComeBack_Home": {
+        "next": [
+            "战斗_Is_HomePage1",
+            "[JumpBack]战斗_CallBack_Button",
+            "[JumpBack]战斗_CallBack_Button1",
+            "[JumpBack]战斗_CallBack_Button2"
+        ],
+        "focus": "尝试返回主界面"
+    },
+    "战斗_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "战斗_Is_HomePage2",
+            "[JumpBack]战斗_CallBack_Button",
+            "[JumpBack]战斗_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查"
+    },
+    "战斗_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    }
+}

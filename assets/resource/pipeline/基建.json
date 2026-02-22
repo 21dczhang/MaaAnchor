@@ -43,8 +43,65 @@
             "[JumpBack]基建_基建_Start_YiJianLingQu",
             "[JumpBack]基建_基建_Start_YiJianRuZhu",
             "[JumpBack]基建_基建_Start_PaiQianWu",
+            "[JumpBack]基建_基建_Start_机器人加速",
             "基建_ComeBack_Home"
         ],
+    },
+    "基建_基建_Start_机器人加速": {
+        "recognition": "OCR",
+        "expected": [
+            "提纯"
+        ],
+        "action": "Click",
+        "target_offset": [
+            0,
+            50,
+            0,
+            0
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "next": [
+            "基建_基建_Start_机器人加速_点击加速"
+        ],
+        "focus": "选择 提纯车间 / 总生产线",
+    },
+    "基建_基建_Start_机器人加速_点击加速": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "加速图标.png"
+        ],
+        "action": "Click",
+        "next": [
+            "基建_基建_Start_机器人加速_点击加速_点击最多"
+        ],
+    },
+    "基建_基建_Start_机器人加速_点击加速_点击最多": {
+        "recognition": "OCR",
+        "expected": [
+            "最多"
+        ],
+        "action": "Click",
+        "next": [
+            "基建_基建_Start_机器人加速_点击加速_点击最多_点击确定"
+        ]
+    },
+    "基建_基建_Start_机器人加速_点击加速_点击最多_点击确定": {
+        "recognition": "OCR",
+        "expected": [
+            "确定"
+        ],
+        "action": "Click",
+        "next": [
+            "基建_基建_Start_机器人加速_点击加速_点击最多_点击确定_返回"
+        ]
+    },
+    "基建_基建_Start_机器人加速_点击加速_点击最多_点击确定_返回": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click"
     },
     "基建_基建_Start_YiJianLingQu": {
         "recognition": "OCR",

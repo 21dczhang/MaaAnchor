@@ -1,0 +1,143 @@
+{
+    "域行合约_Start": {
+        "next": [
+            "域行合约_Start_Is_HomePage1",
+            "[JumpBack]域行合约_CallBack_Button",
+            "[JumpBack]域行合约_CallBack_Button1",
+            "[JumpBack]域行合约_CallBack_Button2"
+        ],
+        "focus": "开始域行合约任务"
+    },
+    "域行合约_Start_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "域行合约_Start_Is_HomePage2",
+            "[JumpBack]域行合约_CallBack_Button",
+            "[JumpBack]域行合约_CallBack_Button1",
+            "[JumpBack]域行合约_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待3s再次检查",
+    },
+    "域行合约_Start_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "next": [
+            "域行合约_域行合约_Start" //真正任务
+        ],
+        "focus": "检查到链接检索，已回到主界面，开始真正执行任务"
+    },
+    "域行合约_域行合约_Start": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "活动图标.png"
+        ],
+        "action": "Click",
+        "post_delay": 5000,
+        "next": [
+            //这里JumpBack添加任务
+            "[JumpBack]域行合约_奖励领取",
+            "域行合约_ComeBack_Home"
+        ],
+    },
+    "域行合约_奖励领取": {
+        "recognition": "OCR",
+        "expected": [
+            "域行合约"
+        ],
+        "next": [
+            "域行合约_奖励领取_一键领取"
+        ],
+        "action": "Click",
+        "post_delay": 1000,
+        "timeout": 5000,
+        "max_hit": 1
+    },
+    "域行合约_奖励领取_一键领取": {
+        "recognition": "OCR",
+        "expected": [
+            "^一键领取"
+        ],
+        "action": "Click",
+        "next": [
+            "[JumpBack]域行合约_CallBack_Button1"
+        ],
+        "timeout": 4000
+    },
+    "域行合约_CallBack_Button": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "返回按键1.png"
+        ],
+        "action": "Click",
+        "focus": "点击返回按键"
+    },
+    "域行合约_CallBack_Button1": {
+        "recognition": "OCR",
+        "expected": [
+            "点击",
+            "空白",
+            "继续"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗1"
+    },
+    "域行合约_CallBack_Button2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "关闭按键1.png"
+        ],
+        "action": "Click",
+        "focus": "关闭弹窗2"
+    },
+    "域行合约_域行合约_Start_战斗中": {
+        "recognition": "OCR",
+        "expected": [
+            "回合",
+            "跳过"
+        ],
+        "action": "Click"
+    },
+    "域行合约_域行合约_Start_加载中": {
+        "recognition": "OCR",
+        "expected": [
+            "ding",
+            "匹配"
+        ],
+        "action": "DoNothing",
+        "focus": "加载中.."
+    },
+    "域行合约_ComeBack_Home": {
+        "next": [
+            "域行合约_Is_HomePage1",
+            "[JumpBack]域行合约_CallBack_Button",
+            "[JumpBack]域行合约_CallBack_Button1",
+            "[JumpBack]域行合约_CallBack_Button2"
+        ]
+    },
+    "域行合约_Is_HomePage1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "post_delay": 5000,
+        "next": [
+            "域行合约_Is_HomePage2",
+            "[JumpBack]域行合约_CallBack_Button",
+            "[JumpBack]域行合约_CallBack_Button2"
+        ],
+        "focus": "检查到链接检索，等待5s再次检查",
+    },
+    "域行合约_Is_HomePage2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "链接检索.png"
+        ],
+        "focus": "检查到链接检索，已回到主界面，结束"
+    },
+}

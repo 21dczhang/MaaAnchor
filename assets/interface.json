@@ -79,6 +79,16 @@
             "default_check": true
         },
         {
+            "name": "域行合约奖励",
+            "entry": "域行合约_Start",
+            "default_check": true
+        },
+        {
+            "name": "通行证奖励",
+            "entry": "通行证_Start",
+            "default_check": true
+        },
+        {
             "name": "战斗-消耗体力",
             "entry": "战斗_Start",
             "description": "目前只支持自动打模组",
@@ -100,7 +110,7 @@
         },
         {
             "name": "测试任务2",
-            "entry": "战斗_战斗_Goto_模组测试_选择模组2_选择次数_Start"
+            "entry": "通行证_识别是否有红点_inverst_滑动"
         }
     ],
     "option": {

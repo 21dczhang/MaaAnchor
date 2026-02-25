@@ -21,18 +21,27 @@
         "focus": "加载中..."
     },
     "StartGame_ClickStart": {
-        "recognition": "OCR",
-        "expected": [
-            "开始"
+        "recognition": "TemplateMatch",
+        "template": [
+            "开始接入.png"
+        ],
+        "roi": [
+            485,
+            483,
+            307,
+            87
+        ],
+        "threshold": [
+            0.8
         ],
         "action": "Click",
-        "post_delay": 5000,
+        "post_delay": 10000,
         "timeout": 30000,
         "next": [
-            "StartGame_Is_HomePage1",
             "StartGame_ClickStart",
-            "[JumpBack]StartGame_CallBack_Button",
-            "[JumpBack]StartGame_CallBack_Button2"
+            "StartGame_Is_HomePage1",
+            "[JumpBack]StartGame_CallBack_Button2",
+            "[JumpBack]StartGame_CallBack_Button"
         ],
         "focus": "点击开始接入"
     },
@@ -52,6 +61,10 @@
             "关闭按键1.png"
         ],
         "action": "Click",
+        "threshold": [
+            0.95
+        ],
+        "post_delay": 1500,
         "focus": "关闭弹窗2"
     },
     "StartGame_Is_HomePage1": {

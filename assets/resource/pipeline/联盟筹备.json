@@ -68,15 +68,21 @@
             "[JumpBack]联盟_联盟_Goto_昨日未领取奖励",
             "联盟_联盟_普通筹备"
         ],
-        "post_delay": 500,
+        "post_delay": 1500,
         "focus": "点击筹备"
     },
     "联盟_联盟_Goto_昨日未领取奖励": {
         "recognition": "OCR",
         "expected": [
-            "确定"
+            "确认"
         ],
         "action": "Click",
+        "roi": [
+            455,
+            321,
+            597,
+            288
+        ],
         "next": [
             "[JumpBack]联盟_CallBack_Button1"
         ],
